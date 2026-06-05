@@ -1,0 +1,6 @@
+/target
+
+# Platform binaries are extracted into the npm packages by CI at publish time,
+# never committed.
+/npm/*/picomd
+/npm/*/picomd.exe

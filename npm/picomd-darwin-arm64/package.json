@@ -1,0 +1,9 @@
+{
+  "name": "picomd-darwin-arm64",
+  "version": "0.1.1",
+  "description": "picomd binary for darwin arm64",
+  "license": "MIT",
+  "repository": "github:jondot/picomd",
+  "os": ["darwin"],
+  "cpu": ["arm64"]
+}

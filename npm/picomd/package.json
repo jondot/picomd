@@ -1,0 +1,17 @@
+{
+  "name": "@jondot/picomd",
+  "version": "0.1.1",
+  "description": "A tiny, offline, GitHub-fidelity Markdown previewer (no editor).",
+  "license": "MIT",
+  "repository": "github:jondot/picomd",
+  "homepage": "https://github.com/jondot/picomd#readme",
+  "keywords": ["markdown", "preview", "github", "katex", "mermaid"],
+  "bin": {
+    "picomd": "bin/picomd"
+  },
+  "optionalDependencies": {
+    "picomd-darwin-arm64": "0.1.1",
+    "picomd-darwin-x64": "0.1.1",
+    "picomd-linux-x64": "0.1.1"
+  }
+}
