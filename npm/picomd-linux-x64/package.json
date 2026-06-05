@@ -1,0 +1,9 @@
+{
+  "name": "picomd-linux-x64",
+  "version": "0.1.0",
+  "description": "picomd binary for linux x64",
+  "license": "MIT",
+  "repository": "github:jondot/picomd",
+  "os": ["linux"],
+  "cpu": ["x64"]
+}

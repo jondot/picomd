@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+// Launcher: finds the platform binary and execs it.
+const { existsSync } = require('fs')
+const { execFileSync } = require('child_process')
+const path = require('path')
+const os = require('os')
+
+const platform = os.platform()
+const arch = os.arch()
+
+const pkgMap = {
+  'darwin-arm64': 'picomd-darwin-arm64',
+  'darwin-x64':   'picomd-darwin-x64',
+  'linux-x64':    'picomd-linux-x64',
+}
+
+const key = `${platform}-${arch}`
+const pkg = pkgMap[key]
+if (!pkg) {
+  console.error(`picomd: unsupported platform ${key}`)
+  process.exit(1)
+}
+
+let binDir
+try {
+  binDir = path.dirname(require.resolve(`${pkg}/package.json`))
+} catch {
+  console.error(`picomd: platform package ${pkg} not installed`)
+  process.exit(1)
+}
+
+const bin = path.join(binDir, 'picomd')
+if (!existsSync(bin)) {
+  console.error(`picomd: binary not found at ${bin}`)
+  process.exit(1)
+}
+
+try {
+  execFileSync(bin, process.argv.slice(2), { stdio: 'inherit' })
+} catch (e) {
+  process.exit(e.status ?? 1)
+}
